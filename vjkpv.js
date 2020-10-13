@@ -181,7 +181,8 @@ let hebToEngChars = {
     "(":")",
     ")":"(",
     "_":"_",
-    "+":"+"
+    "+":"+",
+    "?":"?"
 }
 function EngCharToHeb(char){
     return engToHebChars[char]

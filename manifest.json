@@ -4,7 +4,7 @@
     "name": "FixHebToEngFlips",
     "version": "1.0",
   
-    "description": "Fix Heb To Eng typings Flips",
+    "description": "Fixes Heb To Eng typing Flips due to typing in different keyboard layouts",
 
     "icons": {
         "48": "icons/border-48.png"
