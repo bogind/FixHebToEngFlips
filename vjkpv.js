@@ -190,6 +190,21 @@ function HebCharToEng(char){
     return hebToEngChars[char]
 }
 
+function replaceSelectedText(replacementText) {
+    var sel, range;
+    if (window.getSelection) {
+        sel = window.getSelection();
+        if (sel.rangeCount) {
+            range = sel.getRangeAt(0);
+            range.deleteContents();
+            range.insertNode(document.createTextNode(replacementText));
+        }
+    } else if (document.selection && document.selection.createRange) {
+        range = document.selection.createRange();
+        range.text = replacementText;
+    }
+}
+
 function flip(e){
     if( e.ctrlKey && e.keyCode == 81){
         text = getSelectionText().split(""); 
@@ -198,8 +213,9 @@ function flip(e){
         }else{
             response = text.map(EngCharToHeb).join("")
         }
-        console.log(response)
-        //console.log(is_heb(text))
+
+        replaceSelectedText(response)
+
     }
 }
 document.onkeyup = flip
